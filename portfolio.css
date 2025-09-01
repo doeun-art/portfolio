@@ -1,0 +1,391 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #f7fafd;
+  color: #174fa3;
+}
+
+/* --- 인트로 섹션 --- */
+
+.intro-section {
+  min-height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 6vw;
+  background: linear-gradient(135deg, #dbeafe 0%, #9ec9ff 100%);
+  flex-wrap: wrap;
+}
+
+.intro-texts {
+  flex: 1 1 450px;
+  max-width: 600px;
+  color: #174fa3;
+}
+
+.intro-title {
+  font-family: 'Times New Roman', serif;
+  font-size: 4.2rem;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  text-shadow: 0 3px 12px #5ea1ffaa;
+}
+
+.intro-subtitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.intro-bar {
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, #2c89ff 0%, #a9ccff 100%);
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.intro-desc {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.intro-desc .bold {
+  font-weight: 700;
+  color: #0e3ea3;
+}
+
+.intro-desc .main {
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #3b87f9cc, #8ebfffcc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- 프로필 캐러셀 섹션 --- */
+
+.profile-carousel-section {
+  position: relative;
+  max-width: 780px;
+  margin: 80px auto 100px auto;
+  height: 350px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-carousel-wrapper {
+  position: relative;
+  width: 700px;
+  max-width: 98vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-carousel-viewport {
+  width: 700px;
+  max-width: 98vw;
+  overflow: hidden;
+  position: relative;
+  border-radius: 30px;
+}
+
+.profile-carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(.7,-0.05,.39,1.13);
+  will-change: transform;
+}
+
+.profile-card {
+  flex: 0 0 700px;
+  max-width: 98vw;
+  background: #fff;
+  color: #174fa3;
+  border-radius: 30px;
+  margin: 0;
+  box-shadow: 0 8px 28px #286dcc22;
+  min-height: 320px;
+  padding: 40px 56px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  user-select: none;
+}
+
+.profile-photo img {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border: 5px solid #3576ec;
+  background: #eaf3fb;
+  box-shadow: 0 8px 28px #3576ec44;
+}
+
+.profile-info {
+  max-width: 460px;
+}
+
+.profile-info h2 {
+  font-size: 2.6rem;
+  margin-bottom: 6px;
+}
+
+.sub-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2877cf;
+}
+
+.profile-intro {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 26px;
+  color: #235ba7;
+}
+
+.contact-info,
+.contact-info li {
+  list-style: none;
+  font-size: 1.03rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  padding-left: 0;
+  color: #1a3e7e;
+}
+
+.contact-info li strong {
+  font-weight: 700;
+}
+
+/* 좌우 화살표 */
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e7f3ff;
+  color: #2070c6;
+  border: none;
+  font-size: 2.6rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 14px #1e73be2a;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  z-index: 3;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow.left {
+  left: -10px;
+}
+
+.arrow.right {
+  right: -10px;
+}
+
+.arrow:hover {
+  background: #458aff;
+  color: #fff;
+  transform: scale(1.15) translateY(-50%);
+}
+
+/* --- 작업물 섹션 --- */
+
+.works-section {
+  max-width: 1080px;
+  margin: 0 auto 120px auto;
+  padding: 0 24px;
+}
+
+.works-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #174fa3;
+  letter-spacing: 2px;
+  margin-bottom: 34px;
+  text-align: center;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.work-item {
+  background: #ffffffdd;
+  border-radius: 16px;
+  box-shadow: 0 5px 28px #176de220;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.25s ease;
+  border: 2.5px solid transparent;
+}
+
+.work-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 42px #2a7eff44;
+  border-color: #2a7effaa;
+}
+.work-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.work-item:hover img {
+  transform: scale(1.08);
+}
+
+.work-title {
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #235ba7;
+  background: #eaf3fbcc;
+  border-top: 1px solid #b0ceff;
+  user-select: none;
+  text-align: center;
+  letter-spacing: 1.1px;
+}
+
+/* --- 모달창 스타일 --- */
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(23, 77, 160, 0.83);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1200;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 480px;
+  width: 95vw;
+  padding: 28px 24px 24px 24px;
+  box-shadow: 0 12px 48px #4482ff88;
+  text-align: center;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: #2a56d4;
+  cursor: pointer;
+  transition: color 0.18s;
+}
+
+.modal-close:hover {
+  color: #174fa3;
+}
+
+.modal-image {
+  width: 95%;
+  max-width: 420px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 32px #2a56d455;
+}
+
+.modal-title {
+  color: #1d3d80;
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+
+.modal-desc {
+  color: #264674;
+  font-size: 1.08rem;
+  line-height: 1.66;
+  letter-spacing: 0.03em;
+}
+
+/* 반응형 */
+
+@media (max-width: 940px) {
+  .intro-section {
+    flex-direction: column;
+    padding: 64px 24px 120px 24px;
+    gap: 36px;
+  }
+  .intro-texts, .intro-graphic {
+    max-width: 90vw;
+  }
+  .intro-title {
+    font-size: 3.2rem;
+  }
+  .profile-carousel-section {
+    width: 90vw;
+    height: 360px;
+  }
+  .profile-card {
+    flex-direction: column;
+    padding: 32px 20px;
+    gap: 16px;
+    height: auto;
+  }
+  .profile-info {
+    max-width: 100%;
+    text-align: center;
+  }
+  .works-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .intro-title {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+  }
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+  .profile-photo img {
+    width: 130px;
+    height: 130px;
+  }
+  .profile-info h2 {
+    font-size: 1.8rem;
+  }
+  .profile-carousel-section {
+    height: auto;
+  }
+}

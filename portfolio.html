@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>김도은 포트폴리오</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+
+  <!-- Mix to Make 인트로 섹션 -->
+  <section class="intro-section">
+    <div class="intro-texts">
+      <h1 class="intro-title">Mix to Make</h1>
+      <div class="intro-subtitle">섞임에서 완성으로</div>
+      <div class="intro-bar"></div>
+      <p class="intro-desc">
+        돌리고, 고민하고, 관찰하며 맞춰나가야하는 <span class="bold">큐브</span>처럼<br />
+        <span class="bold">다양한 경험</span>과 고민을 통해 무엇이든 연결해 <span class="bold">균형점</span>을 찾아가는<br />
+        <span class="bold main">디자이너 김도은</span>입니다.
+      </p>
+    </div>
+    <div class="intro-graphic">
+      <img src="cube-graphic.png" alt="큐브 그래픽" />
+    </div>
+  </section>
+
+  <!-- 프로필 슬라이드 캐러셀 섹션 -->
+  <section class="profile-carousel-section">
+    <div class="profile-carousel-wrapper">
+      <button class="arrow left" id="profile-arrow-left">&#60;</button>
+      <div class="profile-carousel-viewport">
+        <div class="profile-carousel-track" id="profile-carousel-track">
+
+          <article class="profile-card">
+            <div class="profile-photo">
+              <img src="profile1.jpg" alt="프로필 이미지 1" />
+            </div>
+            <div class="profile-info">
+              <h2>김도은</h2>
+              <p class="profile-intro">계속 맞춰나가는 큐브 같은 디자이너입니다.</p>
+              <ul class="contact-info">
+                <li><strong>생일:</strong> 2001.05.09</li>
+                <li><strong>전화번호:</strong> 010-9062-6533</li>
+                <li><strong>이메일:</strong> ehdms119@naver.com</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="profile-card">
+            <div class="profile-photo">
+              <img src="profile2.jpg" alt="프로필 이미지 2" />
+            </div>
+            <div class="profile-info">
+              <div class="sub-title">Career</div>
+              <ul>
+                <li>2025 서울 청년축제 기획단 활동</li>
+                <li>2024 자비스넷 디자인마케팅 근무</li>
+                <li>2023 원광대 졸업준비위 기획팀장</li>
+                <li>2022 원광대 시각정보 디자인 부학회장</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="profile-card">
+            <div class="profile-photo">
+              <img src="profile3.jpg" alt="프로필 이미지 3" />
+            </div>
+            <div class="profile-info">
+              <div class="sub-title">International Activity</div>
+              <ul>
+                <li>2025 SeSAC UXUI specialist 3기</li>
+                <li>2023 전북 디자인데이 우수작 선정</li>
+                <li>2023 LINC 3.0 창의캠프(최우수상)</li>
+                <li>2022 LINC 3.0 기술융합 캠프</li>
+                <li>2022 LINC 3.0 지식재산권 캠프</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="profile-card">
+            <div class="profile-photo">
+              <img src="profile4.jpg" alt="프로필 이미지 4" />
+            </div>
+            <div class="profile-info">
+              <div class="sub-title">Skills</div>
+              <ul>
+                <li>Photoshop / Illustrator</li>
+                <li>Figma / XD</li>
+                <li>HTML / CSS / JS</li>
+                <li>Brand Design / UI Design</li>
+                <li>Presentation / Communication</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+      <button class="arrow right" id="profile-arrow-right">&#62;</button>
+    </div>
+  </section>
+
+  <!-- 작업물 섹션 -->
+  <section class="works-section">
+    <h2>Design Works</h2>
+    <div class="works-grid">
+      <div class="work-item" data-index="0">
+        <img src="work1.jpg" alt="작업물 1" />
+        <div class="work-title">작업물 제목 1</div>
+      </div>
+      <div class="work-item" data-index="1">
+        <img src="work2.jpg" alt="작업물 2" />
+        <div class="work-title">작업물 제목 2</div>
+      </div>
+      <div class="work-item" data-index="2">
+        <img src="work3.jpg" alt="작업물 3" />
+        <div class="work-title">작업물 제목 3</div>
+      </div>
+      <div class="work-item" data-index="3">
+        <img src="work4.jpg" alt="작업물 4" />
+        <div class="work-title">작업물 제목 4</div>
+      </div>
+      <div class="work-item" data-index="4">
+        <img src="work5.jpg" alt="작업물 5" />
+        <div class="work-title">작업물 제목 5</div>
+      </div>
+      <div class="work-item" data-index="5">
+        <img src="work6.jpg" alt="작업물 6" />
+        <div class="work-title">작업물 제목 6</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 작업물 모달창 -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <img src="" alt="작업물 이미지" class="modal-image" />
+      <h3 class="modal-title"></h3>
+      <p class="modal-desc"></p>
+    </div>
+  </div>
+
+  <script src="porfolio.js"></script>
+</body>
+</html>
