@@ -30,22 +30,22 @@ window.addEventListener('resize', () => moveTo(idx, false));
 // 작업물 데이터
 const worksData = [
   {
-    img: "work1.jpg",
+    img: "./img/Fitxel.png",
     title: "작업물 제목 1",
     description: "이 작업물은 포스터 디자인으로 깔끔하고 현대적인 느낌을 담았습니다."
   },
   {
-    img: "work2.jpg",
+    img: "./img/HCN_.png",
     title: "작업물 제목 2",
     description: "이 작업물은 로고 디자인으로 심플하면서도 기억에 남는 스타일입니다."
   },
   {
-    img: "work3.jpg",
+    img: "./img/Iksan.png",
     title: "작업물 제목 3",
     description: "웹 배너 디자인으로 시각적 임팩트를 주는 컬러와 레이아웃을 사용했습니다."
   },
   {
-    img: "work4.jpg",
+    img: "./img/3D.png",
     title: "작업물 제목 4",
     description: "카드뉴스 및 홍보용 디자인 작업물입니다."
   },
@@ -88,5 +88,25 @@ modal.addEventListener('click', e => {
   if (e.target === modal) {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+  }
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // 폼 필드 값 가져오기
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (name && email && phone && message) {
+    alert('메시지가 성공적으로 전송되었습니다!');
+    document.getElementById('contactForm').reset();
+    // 실제 이메일 전송을 원하면 EmailJS 등 외부 연동 코드로 교체
+    // 예시: emailjs.sendForm(...)
+  } else {
+    alert('필수 항목을 모두 입력해 주세요.');
   }
 });

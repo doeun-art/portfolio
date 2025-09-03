@@ -13,6 +13,27 @@ body {
   color: #174fa3;
 }
 
+.page-header {
+    color:#fff;
+    position:fixed;
+    left:0;right:0;top:0;
+}
+
+ 
+
+.page-header .inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 5%;
+}
+
+.nav ul {
+    display: flex;
+    gap: 100px;
+    color: #ffffff;
+}
+
+
 /* --- 인트로 섹션 --- */
 
 .intro-section {
@@ -73,6 +94,10 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.intro-graphic img {
+  width: 500px;
+}
+
 /* --- 프로필 캐러셀 섹션 --- */
 
 .profile-carousel-section {
@@ -110,14 +135,14 @@ body {
 
 .profile-card {
   flex: 0 0 700px;
-  max-width: 98vw;
+  max-width: 120vw;
   background: #fff;
   color: #174fa3;
   border-radius: 30px;
   margin: 0;
   box-shadow: 0 8px 28px #286dcc22;
   min-height: 320px;
-  padding: 40px 56px;
+  padding: 30px 56px;
   display: flex;
   align-items: center;
   gap: 36px;
@@ -125,21 +150,23 @@ body {
 }
 
 .profile-photo img {
-  border-radius: 50%;
-  width: 140px;
-  height: 140px;
+  border-radius: 20px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
-  border: 5px solid #3576ec;
+  
   background: #eaf3fb;
   box-shadow: 0 8px 28px #3576ec44;
 }
 
 .profile-info {
   max-width: 460px;
+ 
 }
 
 .profile-info h2 {
   font-size: 2.6rem;
+  font-weight: bold;
   margin-bottom: 6px;
 }
 
@@ -284,19 +311,25 @@ body {
   z-index: 1200;
 }
 
+.modal .inner {
+
+  background: #fff;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 95vw;
+  padding: 50px 24px 24px 24px;
+  box-shadow: 0 12px 48px #4482ff88;
+  position: relative;
+}
+
 .modal.active {
   display: flex;
 }
 
 .modal-content {
-  background: #fff;
-  border-radius: 20px;
-  max-width: 480px;
-  width: 95vw;
-  padding: 28px 24px 24px 24px;
-  box-shadow: 0 12px 48px #4482ff88;
+  height: 400px;
+  overflow-y: auto;
   text-align: center;
-  position: relative;
 }
 
 .modal-close {
@@ -304,10 +337,11 @@ body {
   right: 18px;
   top: 14px;
   font-weight: 900;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: #2a56d4;
   cursor: pointer;
   transition: color 0.18s;
+   
 }
 
 .modal-close:hover {
@@ -316,7 +350,7 @@ body {
 
 .modal-image {
   width: 95%;
-  max-width: 420px;
+  max-width: 1080px;
   border-radius: 16px;
   margin-bottom: 18px;
   box-shadow: 0 8px 32px #2a56d455;
@@ -389,3 +423,141 @@ body {
     height: auto;
   }
 }
+
+/* contacts창 */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 36px;
+  background: #f7faff;
+  border-radius: 22px;
+  box-shadow: 0 2px 24px #458aff22;
+}
+
+.contact-info {
+  flex: 1.15;
+  min-width: 260px;
+  color: #222;
+}
+
+.contact-info h2 {
+  color: #458aff;
+  font-size: 2.0rem;
+  margin-bottom: 14px;
+}
+.contact-info p {
+  color: #344;
+  margin-bottom: 24px;
+}
+
+.contact-links a {
+  display: inline-block;
+  font-size: 22px;
+  color: #458aff;
+  background: #fff;
+  border-radius: 50%;
+  padding: 9px;
+  margin-right: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.contact-links a img {
+  width: 48px;
+  height: 48px;
+}
+
+.contact-links a:hover {
+  background: #458aff;
+  color: #fff;
+}
+
+.contact-social {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-social span {
+  color: #222;
+  font-size: 1.01rem;
+  margin-right: 10px;
+}
+.contact-social a {
+  font-size: 18px;
+  color: #458aff;
+  background: #fff;
+  border-radius: 50%;
+  padding: 6px;
+  margin-right: 7px;
+  transition: background 0.2s, color 0.2s;
+}
+.contact-social a:hover {
+  background: #458aff;
+  color: #fff;
+}
+
+.contact-form {
+  flex: 1.4;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 18px #458aff20;
+  padding: 32px 26px 32px 32px;
+  min-width: 320px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+.form-group {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 17px;
+}
+.message-group {
+  margin-bottom: 10px;
+}
+label {
+  font-weight: 500;
+  color: #458aff;
+  margin-bottom: 8px;
+}
+input, textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid #cde6ff;
+  border-radius: 7px;
+  padding: 12px 13px;
+  font-size: 16px;
+  background: #f3f9ff;
+  color: #222;
+  resize: none;
+  transition: border-color 0.2s;
+}
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #458aff;
+}
+.send-btn {
+  display: block;
+  width: 100%;
+  padding: 13px 0;
+  font-size: 18px;
+  border-radius: 7px;
+  background: #458aff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+  margin-top: 12px;
+}
+.send-btn:hover {
+  background: #1c54a6;
+}
+

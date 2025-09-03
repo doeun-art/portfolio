@@ -7,9 +7,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>김도은 포트폴리오</title>
   <link rel="stylesheet" href="portfolio.css">
-  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="./css/reset.css">
 </head>
 <body>
+
+  <header class="page-header">
+      <div class="inner">
+        <h1>
+            <a href="#"> PORTFOLIO</a>
+        </h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Design Works</a></li>
+                <li><a href="#">contact</a></li>
+                
+            </ul>
+        <!-- <a href="#">UX·UI DESIGN</a>
+        <a href="#">BX DESIGN</a>
+        <a href="#">3D Animation</a>
+        <a href="#">OutSourcing</a> -->
+        </nav>
+      </div>
+    </header>
 
   <!-- Mix to Make 인트로 섹션 -->
   <section class="intro-section">
@@ -24,7 +44,7 @@
       </p>
     </div>
     <div class="intro-graphic">
-      <img src="cube-graphic.png" alt="큐브 그래픽" />
+      <img src="./img/cube.png" alt="큐브 그래픽" />
     </div>
   </section>
 
@@ -37,12 +57,13 @@
 
           <article class="profile-card">
             <div class="profile-photo">
-              <img src="profile1.jpg" alt="프로필 이미지 1" />
+              <img src="./img/doeun_1.jpg" alt="프로필 이미지 1" />
             </div>
             <div class="profile-info">
               <h2>김도은</h2>
-              <p class="profile-intro">계속 맞춰나가는 큐브 같은 디자이너입니다.</p>
+              <p class="profile-intro">꾸준히 맞춰나가는 디자이너입니다.</p>
               <ul class="contact-info">
+                <li><strong>주소</strong> 금천구 시흥동 </li>
                 <li><strong>생일:</strong> 2001.05.09</li>
                 <li><strong>전화번호:</strong> 010-9062-6533</li>
                 <li><strong>이메일:</strong> ehdms119@naver.com</li>
@@ -55,44 +76,60 @@
               <img src="profile2.jpg" alt="프로필 이미지 2" />
             </div>
             <div class="profile-info">
-              <div class="sub-title">Career</div>
+              <div class="sub-title">Education</div>
               <ul>
-                <li>2025 서울 청년축제 기획단 활동</li>
-                <li>2024 자비스넷 디자인마케팅 근무</li>
-                <li>2023 원광대 졸업준비위 기획팀장</li>
-                <li>2022 원광대 시각정보 디자인 부학회장</li>
+                <li>2024. 02 원광대학교 시각정보디자인학과 졸업</li>
+                <li>2020. 03 원광대학교 디자인학부 최초합격</li>
+                <li>2020. 02 원광여자고등학교 졸업</li>
               </ul>
             </div>
           </article>
 
           <article class="profile-card">
             <div class="profile-photo">
-              <img src="profile3.jpg" alt="프로필 이미지 3" />
+              <!--<img src="profile2.jpg" alt="프로필 이미지 2" />-->
+            </div>
+            <div class="profile-info">
+              <div class="sub-title">Experience</div>
+              <ul>
+                <li>2025. 05- 서울시 금천구 청년축제기획단 활동</li>
+                <li>2024. 02- 자비스넷 디자인마케팅 근무</li>
+                <li>2023 원광대학교 시각정보디자인과 졸업준비위원회 기획팀장</li>
+                <li>2022 원광대학교 시각정보디자인과 부학회장</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="profile-card">
+            <div class="profile-photo">
+              <!--<img src="profile3.jpg" alt="프로필 이미지 3" />-->
             </div>
             <div class="profile-info">
               <div class="sub-title">International Activity</div>
               <ul>
                 <li>2025 SeSAC UXUI specialist 3기</li>
                 <li>2023 전북 디자인데이 우수작 선정</li>
-                <li>2023 LINC 3.0 창의캠프(최우수상)</li>
-                <li>2022 LINC 3.0 기술융합 캠프</li>
-                <li>2022 LINC 3.0 지식재산권 캠프</li>
+                <li>2023 LINC 3.0 창의대첩 (최우수상)</li>
+                <li>2023 전북 콘텐츠 스타트업 캠프 참가 6.30 (아이디어상)</li>
+                <li>2022 LINC 3.0 기술창업 캠프 참가</li>
+                <li>2022 LINC 3.0 지식재산권 캠프 참가</li>
               </ul>
             </div>
           </article>
 
           <article class="profile-card">
             <div class="profile-photo">
-              <img src="profile4.jpg" alt="프로필 이미지 4" />
+              <img src="./img/tools/tool.svg" alt="프로필 이미지 4" />
             </div>
             <div class="profile-info">
               <div class="sub-title">Skills</div>
               <ul>
                 <li>Photoshop / Illustrator</li>
-                <li>Figma / XD</li>
+                <li>After Effects / Premiere Pro</li>
+                <li>Lightroom / InDesign</li>
+                <li>Figma / Maya</li>
                 <li>HTML / CSS / JS</li>
                 <li>Brand Design / UI Design</li>
-                <li>Presentation / Communication</li>
               </ul>
             </div>
           </article>
@@ -108,23 +145,23 @@
     <h2>Design Works</h2>
     <div class="works-grid">
       <div class="work-item" data-index="0">
-        <img src="work1.jpg" alt="작업물 1" />
+        <img src="./img/Fitxel-page.svg" alt="Fitxel" />
         <div class="work-title">작업물 제목 1</div>
       </div>
       <div class="work-item" data-index="1">
-        <img src="work2.jpg" alt="작업물 2" />
+        <img src="./img/HCN-page.svg" alt="HCN" />
         <div class="work-title">작업물 제목 2</div>
       </div>
       <div class="work-item" data-index="2">
-        <img src="work3.jpg" alt="작업물 3" />
+        <img src="./img/iksan.svg" alt="작업물 3" />
         <div class="work-title">작업물 제목 3</div>
       </div>
       <div class="work-item" data-index="3">
-        <img src="work4.jpg" alt="작업물 4" />
+        <img src="./img/3D.svg" alt="작업물 4" />
         <div class="work-title">작업물 제목 4</div>
       </div>
       <div class="work-item" data-index="4">
-        <img src="work5.jpg" alt="작업물 5" />
+        <img src="./img/festival.svg" alt="작업물 5" />
         <div class="work-title">작업물 제목 5</div>
       </div>
       <div class="work-item" data-index="5">
@@ -136,13 +173,67 @@
 
   <!-- 작업물 모달창 -->
   <div id="modal" class="modal hidden">
-    <div class="modal-content">
+    <div class="inner">
       <span class="modal-close">&times;</span>
-      <img src="" alt="작업물 이미지" class="modal-image" />
-      <h3 class="modal-title"></h3>
-      <p class="modal-desc"></p>
+      <div class="modal-content">
+        <img src="" alt="작업물 이미지" class="modal-image" />
+        <h3 class="modal-title"></h3>
+        <p class="modal-desc"></p>
+      </div>
     </div>
   </div>
+
+  <!-- contacts창 -->
+<section class="contact-section">
+  <div class="contact-info">
+    <h2>Contact us</h2>
+    <p>궁금하거나 필요한 요청을 남겨주세요. 빠르게 답변드리겠습니다.</p>
+    <div class="contact-links">
+      <a href="https://instagram.com/" target="_blank" title="Instagram">
+        <img src="./img/cube.png">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://yourblog.example.com/" target="_blank" title="Blog">
+        <i class="fas fa-blog"></i>
+      </a>
+    </div>
+    <div class="contact-social">
+      <span>Follow us</span>
+      <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://yourblog.example.com/" target="_blank"><i class="fas fa-blog"></i></a>
+      <a href="https://youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+  <form class="contact-form" id="contactForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">이메일</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone">전화번호</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">제목</label>
+        <input type="text" id="subject" name="subject">
+      </div>
+    </div>
+
+    <div class="form-group message-group">
+      <label for="message">요구사항</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="send-btn">Send message</button>
+  </form>
+</section>
 
   <script src="porfolio.js"></script>
 </body>
