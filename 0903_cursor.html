@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김도은 포트폴리오</title>
+  <link rel="stylesheet" href="./css/portfolio.css">
+  <link rel="stylesheet" href="./css/reset.css">
+</head>
+<body>
+  <h1 id="main-title">Hello World</h1>
+  <p>Good day</p>
+
+  <script>
+    // H1 태그 클릭 이벤트 핸들러
+    document.getElementById('main-title').addEventListener('click', function() {
+      console.log('H1 태그가 클릭되었습니다!');
+      console.log('클릭된 텍스트:', this.textContent);
+      console.log('현재 시간:', new Date().toLocaleString('ko-KR'));
+    });
+  </script>
+</body>
+</html>

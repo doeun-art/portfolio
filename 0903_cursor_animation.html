@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤 애니메이션 데모</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 0;
+    }
+
+    .hero {
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease 0.3s;
+    }
+
+    .hero.animate h1,
+    .hero.animate p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animation-section {
+      background: white;
+      margin: 20px 0;
+      border-radius: 15px;
+      padding: 60px 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: #333;
+    }
+
+    /* 화면 밖에서 안으로 들어오는 애니메이션 */
+    .slide-in-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .slide-in-item {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: all 0.8s ease;
+    }
+
+    .slide-in-item:nth-child(even) {
+      transform: translateX(100px);
+    }
+
+    .slide-in-item.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* 좌측, 우측에서 들어오는 애니메이션 */
+    .side-slide-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 40px 0;
+      gap: 30px;
+    }
+
+    .side-slide-item {
+      flex: 1;
+      background: linear-gradient(45deg, #4834d4, #686de0);
+      color: white;
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      transform: translateX(-150px);
+      transition: all 0.8s ease;
+    }
+
+    .side-slide-item.right {
+      transform: translateX(150px);
+    }
+
+    .side-slide-item.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Slide-up 애니메이션 */
+    .slide-up-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .slide-up-item {
+      background: linear-gradient(45deg, #00d2d3, #54a0ff);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 0.6s ease;
+    }
+
+    .slide-up-item.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fade-in 애니메이션 */
+    .fade-in-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .fade-in-item {
+      background: linear-gradient(45deg, #ff9ff3, #f368e0);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    .fade-in-item.animate {
+      opacity: 1;
+    }
+
+    /* 카운팅 애니메이션 */
+    .counter-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .counter-item {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(45deg, #2ed573, #7bed9f);
+      color: white;
+      border-radius: 10px;
+    }
+
+    .counter-number {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .counter-label {
+      font-size: 1.1rem;
+    }
+
+    /* 프로그레스바 */
+    .progress-container {
+      margin: 40px 0;
+    }
+
+    .progress-item {
+      margin: 30px 0;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+      border-radius: 10px;
+      width: 0%;
+      transition: width 2s ease;
+    }
+
+    .progress-fill.animate {
+      width: var(--progress-width);
+    }
+
+    /* 반응형 디자인 */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .side-slide-container {
+        flex-direction: column;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 히어로 섹션 -->
+  <section class="section hero">
+    <div class="container">
+      <h1>스크롤 애니메이션 데모</h1>
+      <p>아래로 스크롤하여 다양한 애니메이션 효과를 확인해보세요!</p>
+    </div>
+  </section>
+
+  <!-- 화면 밖에서 안으로 들어오는 애니메이션 -->
+  <section class="section">
+    <div class="container">
+      <div class="animation-section">
+        <h2 class="section-title">화면 밖에서 안으로 들어오는 애니메이션</h2>
+        <div class="slide-in-container">
+          <div class="slide-in-item">
+            <h3>왼쪽에서 들어오기</h3>
+            <p>화면 왼쪽 밖에서 안으로 슬라이드되는 애니메이션입니다.</p>
+          </div>
+          <div class="slide-in-item">
+            <h3>오른쪽에서 들어오기</h3>
+            <p>화면 오른쪽 밖에서 안으로 슬라이드되는 애니메이션입니다.</p>
+          </div>
+          <div class="slide-in-item">
+            <h3>교대로 나타나기</h3>
+            <p>홀수는 왼쪽에서, 짝수는 오른쪽에서 나타납니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 좌측, 우측에서 한번에 들어오는 애니메이션 -->
+  <section class="section">
+    <div class="container">
+      <div class="animation-section">
+        <h2 class="section-title">좌측, 우측에서 한번에 들어오는 애니메이션</h2>
+        <div class="side-slide-container">
+          <div class="side-slide-item">
+            <h3>왼쪽 요소</h3>
+            <p>왼쪽에서 동시에 슬라이드되어 들어옵니다.</p>
+          </div>
+          <div class="side-slide-item right">
+            <h3>오른쪽 요소</h3>
+            <p>오른쪽에서 동시에 슬라이드되어 들어옵니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-up 애니메이션 -->
+  <section class="section">
+    <div class="container">
+      <div class="animation-section">
+        <h2 class="section-title">Slide-up 애니메이션</h2>
+        <div class="slide-up-container">
+          <div class="slide-up-item">
+            <h3>아래에서 위로</h3>
+            <p>화면 아래에서 위로 슬라이드됩니다.</p>
+          </div>
+          <div class="slide-up-item">
+            <h3>순차적 등장</h3>
+            <p>각 요소가 순차적으로 나타납니다.</p>
+          </div>
+          <div class="slide-up-item">
+            <h3>부드러운 움직임</h3>
+            <p>자연스러운 슬라이드 효과를 제공합니다.</p>
+          </div>
+          <div class="slide-up-item">
+            <h3>반응형 디자인</h3>
+            <p>모든 화면 크기에서 잘 작동합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fade-in 애니메이션 -->
+  <section class="section">
+    <div class="container">
+      <div class="animation-section">
+        <h2 class="section-title">Fade-in 애니메이션</h2>
+        <div class="fade-in-container">
+          <div class="fade-in-item">
+            <h3>페이드 인</h3>
+            <p>투명에서 불투명으로 변화합니다.</p>
+          </div>
+          <div class="fade-in-item">
+            <h3>부드러운 전환</h3>
+            <p>자연스러운 페이드 효과입니다.</p>
+          </div>
+          <div class="fade-in-item">
+            <h3>시각적 효과</h3>
+            <p>사용자 경험을 향상시킵니다.</p>
+          </div>
+          <div class="fade-in-item">
+            <h3>성능 최적화</h3>
+            <p>효율적인 애니메이션 구현입니다.</p>
+          </div>
+          <div class="fade-in-item">
+            <h3>크로스 브라우저</h3>
+            <p>모든 브라우저에서 지원됩니다.</p>
+          </div>
+          <div class="fade-in-item">
+            <h3>접근성 고려</h3>
+            <p>모든 사용자를 위한 디자인입니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 카운팅 애니메이션 -->
+  <section class="section">
+    <div class="container">
+      <div class="animation-section">
+        <h2 class="section-title">카운팅 애니메이션</h2>
+        <div class="counter-container">
+          <div class="counter-item">
+            <div class="counter-number" data-target="1000">0</div>
+            <div class="counter-label">프로젝트 완료</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-number" data-target="500">0</div>
+            <div class="counter-label">만족한 고객</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-number" data-target="50">0</div>
+            <div class="counter-label">수상 경력</div>
+          </div>
+          <div class="counter-item">
+            <div class="counter-number" data-target="24">0</div>
+            <div class="counter-label">시간 지원</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 프로그레스바 애니메이션 -->
+  <section class="section">
+    <div class="container">
+      <div class="animation-section">
+        <h2 class="section-title">프로그레스바 애니메이션</h2>
+        <div class="progress-container">
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>HTML/CSS</span>
+              <span>95%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="--progress-width: 95%"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>JavaScript</span>
+              <span>88%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="--progress-width: 88%"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>React</span>
+              <span>82%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="--progress-width: 82%"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>Node.js</span>
+              <span>75%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="--progress-width: 75%"></div>
+            </div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-label">
+              <span>Python</span>
+              <span>90%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="--progress-width: 90%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // 스크롤 애니메이션을 위한 Intersection Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          
+          // 카운팅 애니메이션
+          if (entry.target.classList.contains('counter-number')) {
+            animateCounter(entry.target);
+          }
+          
+          // 프로그레스바 애니메이션
+          if (entry.target.classList.contains('progress-fill')) {
+            setTimeout(() => {
+              entry.target.classList.add('animate');
+            }, 200);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // 모든 애니메이션 요소 관찰 시작
+    document.addEventListener('DOMContentLoaded', () => {
+      // 히어로 섹션 애니메이션
+      const hero = document.querySelector('.hero');
+      setTimeout(() => {
+        hero.classList.add('animate');
+      }, 500);
+
+      // 다른 애니메이션 요소들 관찰
+      const animatedElements = document.querySelectorAll(`
+        .slide-in-item,
+        .side-slide-item,
+        .slide-up-item,
+        .fade-in-item,
+        .counter-number,
+        .progress-fill
+      `);
+      
+      animatedElements.forEach(el => {
+        observer.observe(el);
+      });
+    });
+
+    // 카운팅 애니메이션 함수
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000; // 2초
+      const increment = target / (duration / 16); // 60fps 기준
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        element.textContent = Math.floor(current);
+      }, 16);
+    }
+
+    // 스크롤 이벤트로 추가 효과
+    let ticking = false;
+    
+    function updateScrollEffects() {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.hero');
+      
+      if (parallax) {
+        const speed = scrolled * 0.5;
+        parallax.style.transform = `translateY(${speed}px)`;
+      }
+      
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateScrollEffects);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
+
+    // 부드러운 스크롤 효과
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
